@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "tests"
+version = "0.1.0"
+description = "Robot tests."
+authors = ["Joel Gerber <joel@grrbrr.ca>"]
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+robotframework = "^6.0.2"
+library = { path = "../library" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
