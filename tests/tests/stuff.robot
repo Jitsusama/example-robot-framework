@@ -1,33 +1,33 @@
 *** Settings ***
 
 Documentation  Stuffy tests.
+Test Tags  stuff
 Library  OperatingSystem
-Library  library.stdout_writer.Writer  AS  Writer
+Library  library.stdout_writer.Writer  AS  lib
 
 *** Test Cases ***
 
-Stuff gets written.
-  Writer.Write To Stdout  message=sionara suckers
-
-1 TOML file is present.
+Writes Out Messages
   [Documentation]  Robot files are uglier than my brother cross-dressing.
-  [Tags]  filesystem  toml
+  [Tags]  stdout
 
-  ${files} =  Count Files In Directory  path=./  pattern=*.toml
-  Should Be Equal As Integers  ${files}  ${1}
+  ${printed} =  Write sionara suckers to the console
+  Should Be Equal As Strings  message: sionara suckers  ${printed}
 
-Expected files of type exist.
-  [Tags]  filesystem
-  [Template]  Pattern Count
+Expected Files of Type Exist
+  [Template]  Verify that ${count} files matching ${pattern} exist in ${path}
 
-  path=./       pattern=*.toml   count=${1}
-  path=./log    pattern=*.html   count=${2}
-  path=./tests  pattern=*.robot  count=${2}
+  1  *.toml   ./
+  2  *.html   ../log
+  2  *.robot  ./tests
 
 *** Keywords ***
 
-Pattern Count
-  [Arguments]  ${path}  ${pattern}  ${count}
+Write ${message} to the console
+  ${output} =  lib.Write To Stdout  ${message}
+  RETURN  ${output}
 
+Verify that ${count} files matching ${pattern} exist in ${path}
+  [Tags]  filesystem
   ${files} =  Count Files In Directory  path=${path}  pattern=${pattern}
-  Should Be Equal As Integers  ${count}  ${files}
+  Should Be Equal As Integers  ${${count}}  ${files}
