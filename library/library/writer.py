@@ -13,7 +13,7 @@ def write_to_stdout(message: str) -> str:
     return msg
 
 
-@keyword("Write message ${message} to STDERR", types=[str], tags=["console"])
+@keyword("Write message ${message} to STDERR", tags=["console"])
 def write_to_stderr(message: str) -> str:
     """Writes the given message to STDERR."""
     msg = f"message: {message}"
