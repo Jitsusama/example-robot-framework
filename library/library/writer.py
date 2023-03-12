@@ -3,7 +3,11 @@ from robot.api.deco import keyword
 
 
 def write_to_stdout(message: str) -> str:
-    """Writes the given message to STDOUT."""
+    """
+    Writes the given message to STDOUT.
+
+    Tags: console
+    """
     msg = f"message: {message}"
     print(msg)
     return msg
