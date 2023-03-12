@@ -2,6 +2,7 @@
 
 Documentation  Verify user journeys.
 Resource       bdd.resource
+Test Tags      stdout  filesystem
 
 *** Test Cases ***
 

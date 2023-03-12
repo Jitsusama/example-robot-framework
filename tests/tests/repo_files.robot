@@ -7,6 +7,7 @@ Resource       keywords.resource
 
 Expected Files of Type Exist
   [Template]  Verify that ${count} files matching ${pattern} exist in ${path}
+  [Tags]      filesystem
 
   1  *.toml   ./
   2  *.html   ../log
