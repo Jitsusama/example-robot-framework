@@ -4,8 +4,12 @@ Resource  keywords.resource
 
 *** Keywords ***
 
-Message ${message} has been written to the console
-  ${printed} =  Write ${message} to the console
+Info message ${message} has been written to the console
+  ${printed} =  Write info ${message} to the console
+  Should Be Equal As Strings  message: ${message}  ${printed}
+
+Error message ${message} has been written to the console
+  ${printed} =  Write error ${message} to the console
   Should Be Equal As Strings  message: ${message}  ${printed}
 
 I do nothing

@@ -45,7 +45,7 @@ files = [
 
 [[package]]
 name = "library"
-version = "0.1.5"
+version = "0.1.9"
 description = "Test libraries."
 category = "main"
 optional = false
