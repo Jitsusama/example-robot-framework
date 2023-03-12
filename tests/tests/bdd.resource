@@ -1,3 +1,7 @@
+*** Settings ***
+
+Resource  keywords.resource
+
 *** Keywords ***
 
 Message ${message} has been written to the console
@@ -7,5 +11,5 @@ Message ${message} has been written to the console
 I do nothing
   No Operation
 
-Robot files should still exist
-  Verify that ${2} files matching *.robot exist in ./tests
+A total of ${count} files named ${pattern} should still exist in ${path}
+  Verify that ${count} files matching ${pattern} exist in ${path}
